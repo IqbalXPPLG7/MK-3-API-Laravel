@@ -22,6 +22,15 @@ class KaryawanController extends Controller
         ],200);
     }
 
+    public function show($id)
+    {
+        $karyawan = Karyawan::find($id);
+        if (!$karyawan) {
+            return response()->json(['message' => 'Karyawan not found'], 404);
+        }
+        return response()->json($karyawan, 200);
+    }
+
     /**
      * Store a newly created resource in storage.
      */
